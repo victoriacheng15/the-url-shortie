@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <title>The url shortie</title>
+  </head>
+  <body class="container is-max-desktop is-fluid py-6">
+    <h1 class="title has-text-info">The URL shortie</h1>
+    <form action="/shortie" method="POSt" class="my-4">
+      <div class="field">
+        <label class="label is-size-5" for="fullUrl" name="fullUrl"
+          >Enter your full URL</label
+        >
+        <input
+          class="input column is-half is-size-5"
+          type="url"
+          placeholder="your url"
+        />
+      </div>
+      <button class="button is-info is-medium" type="button">Shortie</button>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full URL</th>
+          <th>Short URL</th>
+          <th>Clicks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/">full url</a></td>
+          <td>Short url</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
