@@ -1,14 +1,23 @@
-const express = require("express")
+require("dotenv").config();
+const express = require("express");
 
+const connectDB = require('./config/db')
 
-const app = express()
+connectDB()
 
-const port = process.env.PORT || 5000
+const app = express();
+app.set("view engine", "ejs");
 
-app.get('/',  (req,res) => {
-  res.send('hello from express server')
-})
+const port = process.env.PORT || 5000;
+
+app.get("/", (req, res) => {
+	res.render("index");
+});
+
+app.post("shortie", (req, res) => {
+	//
+});
 
 app.listen(port, () => {
-  console.log(`the server is running on ${port}`);
-})
+	console.log(`the server is running on ${port}`);
+});
