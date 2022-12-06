@@ -1,0 +1,26 @@
+{
+  "name": "the-url-shortie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "rome:check": "pnpm exec rome check .",
+    "rome:apply": "pnpm exec rome check . --apply",
+    "rome:format": "pnpm exec rome format .",
+    "rome:write": "pnpm exec rome format . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0",
+    "nanoid": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "rome": "^10.0.1"
+  }
+}
