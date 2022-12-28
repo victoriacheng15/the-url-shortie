@@ -1,25 +1,31 @@
 const mongoose = require("mongoose");
 const { nanoid } = require("nanoid");
 
-const shortUrlSchema = new mongoose.Schema({
-	full: {
-		type: String,
-		required: true,
+const shortUrlSchema = new mongoose.Schema(
+	{
+		full: {
+			type: String,
+			required: true,
+		},
+		short: {
+			type: String,
+			required: true,
+			default: nanoid(6),
+		},
+		clicks: {
+			type: Number,
+			required: true,
+			default: 0,
+		},
+		expiresAt: {
+			type: Date,
+			expires: "1h",
+			default: Date.now,
+		},
 	},
-	short: {
-		type: String,
-		required: true,
-		default: nanoid(6),
+	{
+		timestamps: true,
 	},
-	clicks: {
-		type: Number,
-		required: true,
-		default: 0,
-	},
-	date: {
-		type: String,
-		default: Date.now,
-	},
-});
+);
 
 module.exports = mongoose.model("url", shortUrlSchema);
