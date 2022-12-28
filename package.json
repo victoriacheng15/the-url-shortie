@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch ./backend/index.js",
-    "rome:check": "pnpm exec rome check ./backend ./frontend",
-    "rome:apply": "pnpm exec rome check ./backend ./frontend --apply",
-    "rome:format": "pnpm exec rome format ./backend ./frontend",
-    "rome:write": "pnpm exec rome format ./backend ./frontend --write",
+    "rome:check": "pnpm exec rome check ./backend ./frontend/src",
+    "rome:apply": "pnpm exec rome check ./backend ./frontend/src --apply",
+    "rome:format": "pnpm exec rome format ./backend ./frontend/src",
+    "rome:write": "pnpm exec rome format ./backend ./frontend/src --write",
     "rome:run": "pnpm rome:apply && pnpm rome:write"
   },
   "keywords": [],
