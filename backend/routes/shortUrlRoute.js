@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { addFull, getFull } = require("../controllers/shortUrlController");
+const { addFull, getShort } = require("../controllers/shortUrlController");
 
-router.post("/shortie", addFull);
-router.get("/:shortUrl", getFull);
+router.post("/fullUrl", addFull);
+router.get("/:shortUrl", getShort);
 
 module.exports = router;
