@@ -4,24 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "rome:check": "pnpm exec rome check .",
-    "rome:apply": "pnpm exec rome check . --apply",
-    "rome:format": "pnpm exec rome format .",
-    "rome:write": "pnpm exec rome format . --write"
+    "dev": "node --watch ./backend/index.js",
+    "rome:check": "pnpm exec rome check ./backend ./frontend",
+    "rome:apply": "pnpm exec rome check ./backend ./frontend --apply",
+    "rome:format": "pnpm exec rome format ./backend ./frontend",
+    "rome:write": "pnpm exec rome format ./backend ./frontend --write",
+    "rome:run": "pnpm rome:apply && pnpm rome:write"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
-    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mongoose": "6.8.0",
     "nanoid": "3.3.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
     "rome": "^10.0.1"
   }
 }
