@@ -26,9 +26,8 @@ const getShort = async (req, res) => {
 	try {
 		const { shortUrl } = req.params;
 		const getShort = await ShortUrl.find({ short: shortUrl });
-		console.log(getShort);
 		const short = getShort[0];
-		console.log(short);
+
 		if (short === null) {
 			return res.status(404).json({ message: "the url doesnt exist" });
 		}
