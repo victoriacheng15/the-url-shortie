@@ -1,12 +1,12 @@
 const express = require("express");
-const passport = require('passport')
-const session = require("express-session")
-const MongoStore = require('connect-mongo');
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
 const { errorMiddleware } = require("./middleware/errorMiddleware");
 
 require("dotenv").config();
-require('./config/passport.js')(passport)
+require("./config/passport.js")(passport);
 
 const port = process.env.PORT || 5000;
 
@@ -22,14 +22,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // session
-app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
-  saveUninitialized: true,
-	rolling: true,
-	maxAge: 60 * 60 * 1000,
-	store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-}))
+app.use(
+	session({
+		secret: "keyboard cat",
+		resave: false,
+		saveUninitialized: true,
+		rolling: true,
+		maxAge: 60 * 60 * 1000,
+		store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+	}),
+);
 
 // passport middleware
 app.use(passport.initialize());
