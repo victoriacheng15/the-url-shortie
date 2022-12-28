@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "update main branch",
+      "type": "shell",
+      "command": "git switch main && git fetch && git pull origin main"
+    },
+    {
+      "label": "format files with rome",
+      "type": "shell",
+      "command": "pnpm rome:run"
+    }
+  ]
+}
