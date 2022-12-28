@@ -2,7 +2,7 @@ const ShortUrl = require("../models/shortUrl");
 
 const getHome = async (req, res) => {
 	const shortUrls = await ShortUrl.find();
-	res.send(shortUrls);
+	res.status(200).json(shortUrls);
 };
 
 module.exports = {
