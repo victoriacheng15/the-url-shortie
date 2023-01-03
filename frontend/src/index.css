@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-200;
+  }
+
+  main {
+    @apply flex justify-center items-center py-8;
+  }
+}
