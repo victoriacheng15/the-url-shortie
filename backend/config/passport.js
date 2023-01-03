@@ -11,7 +11,34 @@ module.exports = function (passport) {
 			},
 			async (accessToken, refreshToken, profile, done) => {
 				console.log(profile);
+				const newUser = {
+					googleId: profile.id,
+					email: profile.emails[0].value,
+					firstName: profile.name.givenName,
+					lastName: profile.name.familyName,
+				};
+
+				try {
+					let user = await User.findOne({ googleId: profile.id });
+					if (user) {
+						done(null, user);
+					} else {
+						user = await User.create(newUser);
+						return done(null, newUser);
+					}
+				} catch (error) {
+					return done(error);
+				}
 			},
 		),
 	);
+
+	passport.serializeUser((user, done) => {
+		done(null, user);
+	});
+
+	passport.deserializeUser((id, done) => {
+		// User.findById(id, (err, user) => done(err, user));
+		done(null, id)
+	});
 };
