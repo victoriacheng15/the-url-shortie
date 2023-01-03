@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors")
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -20,6 +21,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors())
 
 // session
 app.use(
@@ -38,7 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/api/urls", homeRoute);
-app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes);
 app.use("/api/url", shortUrlRoute);
 
 app.use(errorMiddleware);
