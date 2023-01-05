@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
+const { googleCallback, logout } = require("../controllers/authController");
 
 // login with Google
 router.get(
@@ -11,22 +12,10 @@ router.get(
 router.get(
 	"/google/callback",
 	passport.authenticate("google", { failureRedirect: "/login" }),
-	(req, res) => {
-		// res.send("you have reached the callback");
-		res.send(req.user)
-		// res.redirect("/");
-	},
+	googleCallback,
 );
 
 // logout
-router.get("/logout", (req, res, next) => {
-	req.logout((error) => {
-		if (error) {
-			return next(error);
-		}
-
-		res.redirect("/");
-	});
-});
+router.get("/logout", logout);
 
 module.exports = router;
