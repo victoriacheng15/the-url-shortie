@@ -23,7 +23,9 @@ function Navbar() {
 				<ul className="flex gap-4 justify-end">
 					{links.map(({ label, href }) => (
 						<li key={label}>
-							<Link className="capitalize text-lg font-medium" to={href}>{label}</Link>
+							<Link className="capitalize text-lg font-medium" to={href}>
+								{label}
+							</Link>
 						</li>
 					))}
 				</ul>
