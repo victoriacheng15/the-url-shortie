@@ -7,7 +7,7 @@ function Login() {
 	};
 
 	return (
-		<>
+		<main>
 			<Container>
 				<div className="flex flex-col gap-4 justify-center items-center">
 					<h2 className="text-2xl md:text-4xl text-center">
@@ -22,7 +22,7 @@ function Login() {
 					</button>
 				</div>
 			</Container>
-		</>
+		</main>
 	);
 }
 
